@@ -11,7 +11,7 @@ namespace Asoc
     {
         string ConnectionString = @"server=localhost;user id=root;password=root;database=asoc_db";
 
-        public void ConnectionTest()
+        public void ConnectionTest() // Тестовое подключение для проверки соединения с бд
         {
             try { 
 
