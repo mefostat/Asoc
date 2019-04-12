@@ -18,7 +18,7 @@ namespace Asoc
              using(MySqlConnection connection = new MySqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    MySqlCommand command;
+                   
                 }
              
 
@@ -28,5 +28,23 @@ namespace Asoc
                 System.Windows.Forms.MessageBox.Show(error.ToString());
             }
         }
+
+
+
+
+    }
+
+
+    class Organizations
+    {
+        int id;
+        string name_org, address, unique_prefix;
+        void organizations(string nameOrg, string addressOrg, string uniquePrefix) // Конструктор класс organizations
+        {
+            this.name_org = nameOrg;
+            this.address = addressOrg;
+            this.unique_prefix = uniquePrefix;
+        }
+
     }
 }
