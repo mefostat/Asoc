@@ -33,7 +33,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddOrganization = new System.Windows.Forms.Button();
             this.lblAddress = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TextAddress = new System.Windows.Forms.TextBox();
             this.lblUpr = new System.Windows.Forms.Label();
             this.textUniquePr = new System.Windows.Forms.TextBox();
             this.lblNameOrg = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.AddOrg.Controls.Add(this.dataGridView1);
             this.AddOrg.Controls.Add(this.btnAddOrganization);
             this.AddOrg.Controls.Add(this.lblAddress);
-            this.AddOrg.Controls.Add(this.textBox2);
+            this.AddOrg.Controls.Add(this.TextAddress);
             this.AddOrg.Controls.Add(this.lblUpr);
             this.AddOrg.Controls.Add(this.textUniquePr);
             this.AddOrg.Controls.Add(this.lblNameOrg);
@@ -101,13 +101,13 @@
             this.lblAddress.TabIndex = 5;
             this.lblAddress.Text = "Адрес:";
             // 
-            // textBox2
+            // TextAddress
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(241, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 26);
-            this.textBox2.TabIndex = 4;
+            this.TextAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TextAddress.Location = new System.Drawing.Point(241, 89);
+            this.TextAddress.Name = "TextAddress";
+            this.TextAddress.Size = new System.Drawing.Size(184, 26);
+            this.TextAddress.TabIndex = 4;
             // 
             // lblUpr
             // 
@@ -176,7 +176,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AddOrg;
         private System.Windows.Forms.Label lblAddress;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TextAddress;
         private System.Windows.Forms.Label lblUpr;
         private System.Windows.Forms.TextBox textUniquePr;
         private System.Windows.Forms.Label lblNameOrg;

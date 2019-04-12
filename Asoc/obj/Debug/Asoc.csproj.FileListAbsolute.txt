@@ -13,3 +13,12 @@ C:\Users\Kupin\Documents\ProjectRep\Asoc\Asoc\bin\Debug\MySql.Data.xml
 C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\Asoc.exe.config
 C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.exe
 C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.pdb
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\Asoc.exe
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\Asoc.pdb
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.dll
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Fabric.Plugin.dll
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.xml
+C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.csprojResolveAssemblyReference.cache
+C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.MainForm.resources
+C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.Properties.Resources.resources
+C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.csproj.GenerateResource.Cache
