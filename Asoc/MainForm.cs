@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Asoc
 {
@@ -21,7 +22,8 @@ namespace Asoc
         }
 
         // TODO : Добавить проверку существующих данных
-        // Добавить проверку вводимых данныъ - возможна реализация через регулярки (Прочитать о них) 
+        // Добавить проверку вводимых данных - возможна реализация через регулярки (Прочитать о них) 
+        // Создать остальные необходимые сущности 
         private void btnAddOrganization_Click(object sender, EventArgs e)
         {
             string NameOrg, Address, UniPrefix;
@@ -41,6 +43,22 @@ namespace Asoc
             }
 
             
+        }
+
+        private void AddOrg_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            v
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

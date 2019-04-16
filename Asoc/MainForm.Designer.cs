@@ -30,7 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddOrg = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.viewOrg = new System.Windows.Forms.DataGridView();
             this.btnAddOrganization = new System.Windows.Forms.Button();
             this.lblAddress = new System.Windows.Forms.Label();
             this.TextAddress = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.AddOrg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewOrg)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -57,7 +57,7 @@
             // AddOrg
             // 
             this.AddOrg.BackColor = System.Drawing.Color.Gainsboro;
-            this.AddOrg.Controls.Add(this.dataGridView1);
+            this.AddOrg.Controls.Add(this.viewOrg);
             this.AddOrg.Controls.Add(this.btnAddOrganization);
             this.AddOrg.Controls.Add(this.lblAddress);
             this.AddOrg.Controls.Add(this.TextAddress);
@@ -71,14 +71,16 @@
             this.AddOrg.Size = new System.Drawing.Size(658, 344);
             this.AddOrg.TabIndex = 0;
             this.AddOrg.Text = "Добавление организации";
+            this.AddOrg.Click += new System.EventHandler(this.AddOrg_Click);
             // 
-            // dataGridView1
+            // viewOrg
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 186);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(640, 150);
-            this.dataGridView1.TabIndex = 7;
+            this.viewOrg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewOrg.Location = new System.Drawing.Point(12, 186);
+            this.viewOrg.Name = "viewOrg";
+            this.viewOrg.Size = new System.Drawing.Size(640, 150);
+            this.viewOrg.TabIndex = 7;
+            this.viewOrg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnAddOrganization
             // 
@@ -163,10 +165,11 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "ASOC";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.AddOrg.ResumeLayout(false);
             this.AddOrg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewOrg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,7 +185,7 @@
         private System.Windows.Forms.Label lblNameOrg;
         private System.Windows.Forms.TextBox TextNameOrg;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView viewOrg;
         private System.Windows.Forms.Button btnAddOrganization;
     }
 }
