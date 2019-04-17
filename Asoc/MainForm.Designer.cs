@@ -50,6 +50,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(666, 370);
             this.tabControl1.TabIndex = 0;
@@ -76,8 +77,9 @@
             // viewOrg
             // 
             this.viewOrg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewOrg.Location = new System.Drawing.Point(12, 186);
+            this.viewOrg.Location = new System.Drawing.Point(8, 188);
             this.viewOrg.Name = "viewOrg";
+            this.viewOrg.RowHeadersWidth = 50;
             this.viewOrg.Size = new System.Drawing.Size(640, 150);
             this.viewOrg.TabIndex = 7;
             this.viewOrg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
+using System.Data;
 
 namespace Asoc
 {
     class Global
     {
-        public string ConnectionString = @"server=localhost;user id=root;password=root;database=asoc_db";
+        /// Список таблиц 
+        /// cartridge_type execute_work in_serving organizations work_type
+        public BindingSource bindingsource;
+        public string ConnectionString = @"server=localhost;user id=root;password=root;database=asoc_db"; // строка подключения
 
         public void ConnectionTest() // Тестовое подключение для проверки соединения с бд
         {
@@ -29,7 +34,19 @@ namespace Asoc
             }
         }
 
-        public void LoadData(string NameTable)
+        public void DeleteObject(int id,string NameTable) // метод удаления данных
+        {
+            string stringQuery = @"DELETE FROM "+ NameTable + " WHERE id = " + id.ToString();
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(stringQuery, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void LoadData(string NameTable) // Метод выборки данных 
         {
             string SqlQuery = "SELECT * FROM "+NameTable;
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
@@ -39,6 +56,13 @@ namespace Asoc
                 
 
                 command.ExecuteNonQuery();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(SqlQuery,connection);
+                MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(adapter);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                bindingsource = new BindingSource();
+                bindingsource.DataSource = table;
+                
             }
         }
     }
@@ -48,7 +72,7 @@ namespace Asoc
     {
         int id;
         string name_org, address, unique_prefix;
-        public Organizations(string nameOrg, string addressOrg, string uniquePrefix) // Конструктор класс organizations
+        public Organizations(string nameOrg, string addressOrg, string uniquePrefix) // Конструктор класса organizations
         {
             this.name_org = nameOrg;
             this.address = addressOrg;
@@ -92,6 +116,7 @@ namespace Asoc
             this.toner = Toner;
         }
 
+        // Добавление вида картриджа
         public void AddCartridgType()
         {
             string StringSql = "INSERT INTO `asoc_db`.`cartridge_type` (`cartridge_name`,`consumables`,`toner`) VALUES (@cartridge_name,@consumables,@toner)";

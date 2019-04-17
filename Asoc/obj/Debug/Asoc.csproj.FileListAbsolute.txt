@@ -22,3 +22,7 @@ C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.csprojResolveAssemblyReference
 C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.MainForm.resources
 C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.Properties.Resources.resources
 C:\Users\Kupin\Documents\Asoc\Asoc\obj\Debug\Asoc.csproj.GenerateResource.Cache
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Web.dll
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Web.xml

@@ -42,7 +42,8 @@ namespace Asoc
                 MessageBox.Show(error.ToString());
             }
 
-            
+            globalClass.LoadData("organizations");
+            viewOrg.DataSource = globalClass.bindingsource;
         }
 
         private void AddOrg_Click(object sender, EventArgs e)
@@ -52,7 +53,8 @@ namespace Asoc
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            v
+            globalClass.LoadData("organizations");
+            viewOrg.DataSource = globalClass.bindingsource;
 
         }
 
