@@ -27,23 +27,44 @@ namespace Asoc
         private void btnAddOrganization_Click(object sender, EventArgs e)
         {
             string NameOrg, Address, UniPrefix;
-
-            try { // Ловим исключения если были введены некорректные данные
-            NameOrg = TextNameOrg.Text;
-            Address = TextAddress.Text;
-            UniPrefix = textUniquePr.Text;
-               
-                // Создаем класс, передаем конструктору значения 
-                Organizations organizations = new Organizations(NameOrg, Address, UniPrefix);
-                organizations.AddOrganizations(); // Добавляем данные об организации в бд
-            }
-            catch(Exception error)
+            if(rbtnOrg.Checked)
             {
-                MessageBox.Show(error.ToString());
-            }
+                try
+                { // Ловим исключения если были введены некорректные данные
+                    NameOrg = TextName.Text;
+                    Address = TextAddress.Text;
+                    UniPrefix = textUniquePr.Text;
 
-            globalClass.LoadData("organizations");
-            viewOrg.DataSource = globalClass.bindingsource;
+                    // Создаем класс, передаем конструктору значения 
+                    Organizations organizations = new Organizations(NameOrg, Address, UniPrefix);
+                    organizations.AddOrganizations(); // Добавляем данные об организации в бд
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+
+                globalClass.LoadData("organizations");
+                viewTable.DataSource = globalClass.bindingsource;
+            }
+            else if(rbtnCart.Checked) 
+            {
+                try
+                {
+                    CartridgeType cartridgetype = new CartridgeType(TextName.Text, textUniquePr.Text, TextAddress.Text);
+                    cartridgetype.AddCartridgType();
+
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+
+                globalClass.LoadData("cartridge_type");
+                viewTable.DataSource = globalClass.bindingsource;
+
+            }
+            
         }
 
         private void AddOrg_Click(object sender, EventArgs e)
@@ -54,13 +75,42 @@ namespace Asoc
         private void MainForm_Load(object sender, EventArgs e)
         {
             globalClass.LoadData("organizations");
-            viewOrg.DataSource = globalClass.bindingsource;
+            viewTable.DataSource = globalClass.bindingsource;
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void viewOrg_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void rbtnOrg_CheckedChanged(object sender, EventArgs e)
+        {
+            lblNameOrg.Text = "Наименования организации:";
+            lblUpr.Text = "Уникальный префикс:";
+            lblAddress.Text = "Адрес:";
+            lblNameOrg.Location = new Point(8, 28);
+            lblUpr.Location = new Point(58, 57);
+
+            globalClass.LoadData("organizations");
+            viewTable.DataSource = globalClass.bindingsource;
+        }
+
+        private void rbtnCart_CheckedChanged(object sender, EventArgs e)
+        {
+            lblNameOrg.Text = "Наименование типа:";
+            lblUpr.Text = "Расходники:";
+            lblAddress.Text = "Тонер:";
+
+            lblNameOrg.Location = new Point(75, 28);
+            lblUpr.Location = new Point(138,57 );
+            globalClass.LoadData("cartridge_type");
+            viewTable.DataSource = globalClass.bindingsource;
         }
     }
 }
