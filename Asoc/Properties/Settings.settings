@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=PC\SQLEXPRESS;Initial Catalog=RealtyAgentBase;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="CountCart" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

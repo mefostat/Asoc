@@ -33,5 +33,17 @@ namespace Asoc.Properties {
                 return ((string)(this["RealtyAgentBaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CountCart {
+            get {
+                return ((int)(this["CountCart"]));
+            }
+            set {
+                this["CountCart"] = value;
+            }
+        }
     }
 }

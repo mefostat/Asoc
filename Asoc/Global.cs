@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Data;
+using BarcodeLib;
+using System.Drawing;
 
 namespace Asoc
 {
@@ -64,6 +66,48 @@ namespace Asoc
                 bindingsource.DataSource = table;
                 
             }
+        }
+
+        public void AddType(string name_work) // Добавление типа картриджа
+        {
+            string StringSql = "INSERT INTO `asoc_db`.`work_type` (`name_work`) VALUES (@name_work)";
+
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(StringSql, connection);
+
+                MySqlParameter nameParam = new MySqlParameter("@name_work", name_work);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+
+            }
+        }
+
+        public Image GeneratedBarcode(Image img,string text)  // Генерация Штрих-кода
+        {
+            BarcodeLib.Barcode barcode = new BarcodeLib.Barcode()
+            {
+                IncludeLabel = true,
+                Alignment = BarcodeLib.AlignmentPositions.CENTER,
+                Width = 300,
+                Height = 100,
+                RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                BackColor = Color.White,
+                ForeColor = Color.Black,
+            };
+
+            img = barcode.Encode(TYPE.CODE128B, text);
+
+            return img;
+        }
+
+        public string GenerateId(string OrgPr, string Type, string Count)  // Генерация Id для картриджа 
+        {
+            string answer = string.Empty;
+            answer = OrgPr + Type + Count;
+            return answer;
         }
     }
 

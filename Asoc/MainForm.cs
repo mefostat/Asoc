@@ -43,7 +43,7 @@ namespace Asoc
                 {
                     MessageBox.Show(error.ToString());
                 }
-
+                // Обновляем данные в DateGrid
                 globalClass.LoadData("organizations");
                 viewTable.DataSource = globalClass.bindingsource;
             }
@@ -59,10 +59,25 @@ namespace Asoc
                 {
                     MessageBox.Show(error.ToString());
                 }
-
+                // Обновляем данные в DateGrid
                 globalClass.LoadData("cartridge_type");
                 viewTable.DataSource = globalClass.bindingsource;
 
+            }
+            else if(rdbWorkT.Checked)
+            {
+                try
+                {
+                    globalClass.AddType(TextName.Text);
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+                // Обновляем данные в DateGrid
+                globalClass.LoadData("work_type");
+                viewTable.DataSource = globalClass.bindingsource;
             }
             
         }
@@ -74,8 +89,10 @@ namespace Asoc
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            globalClass.LoadData("organizations");
-            viewTable.DataSource = globalClass.bindingsource;
+
+            // Обновляем данные в DateGrid
+            UpdateElement();
+
 
         }
 
@@ -94,23 +111,98 @@ namespace Asoc
             lblNameOrg.Text = "Наименования организации:";
             lblUpr.Text = "Уникальный префикс:";
             lblAddress.Text = "Адрес:";
-            lblNameOrg.Location = new Point(8, 28);
+            // Меняем позиции элементов
+            lblNameOrg.Location = new Point(8, 28); 
             lblUpr.Location = new Point(58, 57);
+
+            VisibleElement(true);
 
             globalClass.LoadData("organizations");
             viewTable.DataSource = globalClass.bindingsource;
         }
 
         private void rbtnCart_CheckedChanged(object sender, EventArgs e)
-        {
+        { 
             lblNameOrg.Text = "Наименование типа:";
             lblUpr.Text = "Расходники:";
             lblAddress.Text = "Тонер:";
-
+            VisibleElement(true);
+            // Меняем позиции элементов
             lblNameOrg.Location = new Point(75, 28);
             lblUpr.Location = new Point(138,57 );
+
+            // Обновляем данные в DateGrid
             globalClass.LoadData("cartridge_type");
             viewTable.DataSource = globalClass.bindingsource;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            lblNameOrg.Text = "Наименование типа:";
+            VisibleElement(false);
+
+            // Обновляем данные в DateGrid
+            globalClass.LoadData("work_type");
+            viewTable.DataSource = globalClass.bindingsource;
+        }
+
+        /// Метод появления 
+        public void VisibleElement(bool ans)
+        {
+            if (ans)
+            {
+                lblUpr.Visible = true;
+                lblAddress.Visible = true;
+                TextAddress.Visible = true;
+                textUniquePr.Visible = true;
+            }
+            else
+            {
+                lblUpr.Visible = false;
+                lblAddress.Visible = false;
+                TextAddress.Visible = false;
+                textUniquePr.Visible = false;
+            }
+        }
+
+        // Метод обновления 
+        public void UpdateElement()
+        {
+            globalClass.LoadData("organizations");
+            boxOrg.DataSource = globalClass.bindingsource;
+            boxOrg.DisplayMember = "name_org";
+            boxOrg.ValueMember = "id_org";
+
+            globalClass.LoadData("cartridge_type");
+            boxType.DataSource = globalClass.bindingsource;
+            boxType.DisplayMember = "cartridge_name";
+            //boxType.ValueMember = "id_cartridge";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           BarcodePic.Image =  globalClass.GeneratedBarcode(BarcodePic.Image, globalClass.GenerateId("SUK","825", Convert.ToString(Properties.Settings.Default.CountCart)));
+            Properties.Settings.Default.CountCart++; 
+        }
+
+        private void boxOrg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            UpdateElement();
         }
     }
 }

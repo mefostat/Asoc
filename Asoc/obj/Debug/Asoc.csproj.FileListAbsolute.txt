@@ -26,3 +26,4 @@ C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Web.dll
 C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\MySql.Web.xml
+C:\Users\Kupin\Documents\Asoc\Asoc\bin\Debug\BarcodeLib.dll
